@@ -1,10 +1,10 @@
 const http = require('http');
 
 const Koa = require('koa')
-const router = require('koa-router')
+const router = require('koa-router')()
 const app = new Koa()
 
-app.use(router)
+app.use(router.routes()).use(router.allowedMethods())
 router.get('/', (ctx, next) => {
   ctx.response.body = '<h1>home页面</h1>'
 })
