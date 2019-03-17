@@ -21,7 +21,7 @@ router.get('/', async (ctx, next) => {
     title:'denzel',
     list:[
       {
-        name:'小丁哥',
+        name:'小丁哥222',
         age:20
       },{
         name:'板凳儿',
