@@ -3,11 +3,38 @@ const http = require('http');
 const Koa = require('koa')
 const router = require('koa-router')()
 const app = new Koa()
+const logs = require('./log')
+const views = require('koa-views')
+app.use(logs())
+app.use(views('views', { extension: 'ejs' }))
 
 app.use(router.routes()).use(router.allowedMethods())
-router.get('/', (ctx, next) => {
-  ctx.response.body = '<h1>home页面</h1>'
+const path = require('path')
+const vp = path.resolve(__dirname, 'views')
+// router.get('/',async (ctx, next) => {
+//   // await next()
+//   ctx.response.body = '<h1>home页面</h1>'
+// })
+
+router.get('/', async (ctx, next) => {
+  await ctx.render('index.ejs',{
+    title:'denzel',
+    list:[
+      {
+        name:'小丁哥',
+        age:20
+      },{
+        name:'板凳儿',
+        age:20
+      },{
+        name:'西瓜',
+        age:20
+      },
+    ]
+  })
 })
+
+
 app.listen(3000, () => {
   console.log('running')
 })
