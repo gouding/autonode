@@ -4,5 +4,11 @@
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
     "koa-views": "^6.1.5"
-  }
+  },
+  "name": "autonode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:gouding/autonode.git",
+  "author": "denzel' <422293027@qq.com>",
+  "license": "MIT"
 }
